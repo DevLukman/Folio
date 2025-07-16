@@ -1,10 +1,79 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-primary: var(--font-grostesk);
-  --font-secondary: var(--font-merriweather);
-  --font-error: var(--font-nosifer);
+  --font-merri: var(--font-merriweather);
+  --font-playfair: var(--font-playfair);
+  --font-nosifer: var(--font-nosifer);
+  --color-primary: #ffffff;
+  --color-secondary: #161310;
 }
 
 @layer base {
+  [data-theme="dark"] {
+    --color-primary: #161310;
+    --color-secondary: #ffffff;
+  }
+}
+
+.app-container {
+  @apply mx-auto w-full max-w-[96%] px-[0.8rem] md:max-w-[50%];
+}
+
+.active-links.links::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 8%;
+  background: #161310;
+  transition: 1000ms ease-in-out;
+}
+.links::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 8%;
+  background: #161310;
+  transition: 300ms ease-in-out;
+}
+.links:hover::after {
+  width: 100%;
+  transition: 300ms ease-in-out;
+}
+
+/* [data-theme="light"] {
+  --main-bg-color: #ecebeb;
+  --main-clr: #161310;
+  --intro-bar: #7878784d;
+} */
+/* 
+[data-theme="dark"] {
+  --main-bg-color: #161310;
+  --main-clr: #ecebeb;
+  --intro-bar: #7878784d;
+} */
+
+/* 
+@layer components {
+  .text {
+    @apply px-1 text-[4rem] font-primary text-amber-300;
+  }
+  .min {
+    @apply px-1 text-[4rem] font-primary text-red-500;
+  }
+}
+
+@layer base {
+  h4 {
+    @apply text-8xl;
+  }
+} */
+
+@utility flex-center {
+  @apply flex flex-col items-center justify-center;
 }
