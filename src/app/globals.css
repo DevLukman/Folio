@@ -4,6 +4,7 @@
   --font-merri: var(--font-merriweather);
   --font-playfair: var(--font-playfair);
   --font-nosifer: var(--font-nosifer);
+  --font-barlow: var(--font-barlow);
   --color-primary: #ffffff;
   --color-secondary: #161310;
 }
@@ -16,7 +17,7 @@
 }
 
 .app-container {
-  @apply mx-auto w-full max-w-[96%] px-[0.8rem] md:max-w-[50%];
+  @apply mx-auto w-full max-w-[96%] px-[0.8rem] md:max-w-[65%];
 }
 
 .active-links.links::after {
@@ -44,36 +45,4 @@
 .links:hover::after {
   width: 100%;
   transition: 300ms ease-in-out;
-}
-
-/* [data-theme="light"] {
-  --main-bg-color: #ecebeb;
-  --main-clr: #161310;
-  --intro-bar: #7878784d;
-} */
-/* 
-[data-theme="dark"] {
-  --main-bg-color: #161310;
-  --main-clr: #ecebeb;
-  --intro-bar: #7878784d;
-} */
-
-/* 
-@layer components {
-  .text {
-    @apply px-1 text-[4rem] font-primary text-amber-300;
-  }
-  .min {
-    @apply px-1 text-[4rem] font-primary text-red-500;
-  }
-}
-
-@layer base {
-  h4 {
-    @apply text-8xl;
-  }
-} */
-
-@utility flex-center {
-  @apply flex flex-col items-center justify-center;
 }

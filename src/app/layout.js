@@ -1,11 +1,21 @@
-import Intro from "@/components/Intro";
 import Naviagation from "@/components/Naviagation";
-import { Merriweather, Nosifer, Playfair_Display } from "next/font/google";
+import {
+  Merriweather,
+  Nosifer,
+  Playfair_Display,
+  Barlow_Semi_Condensed,
+} from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/Footer";
 const Playfair = Playfair_Display({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-playfair",
+});
+const Barlow = Barlow_Semi_Condensed({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-barlow",
 });
 const merriweather = Merriweather({
   variable: "--font-merriweather",
@@ -28,11 +38,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${merriweather.variable} ${NosiferFont.variable} ${Playfair.variable} text-secondary font-merri overflow-x-hidden antialiased`}
+        className={`${merriweather.variable} ${Barlow.variable} ${NosiferFont.variable} ${Playfair.variable} text-secondary font-merri overflow-x-hidden antialiased`}
       >
-        <Intro />
         <Naviagation />
-        <main>{children}</main>
+        {children}
+        <Footer />
       </body>
     </html>
   );
