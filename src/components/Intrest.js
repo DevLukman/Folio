@@ -22,8 +22,7 @@ function Intrest() {
           onComplete: () => self.revert(),
           scrollTrigger: {
             trigger: "p",
-            start: "+=150",
-            // end: "clamp(center bottom)",
+            start: "+=350",
           },
         });
       },

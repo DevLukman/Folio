@@ -7,6 +7,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
+import { ThemeProvider } from "next-themes";
 const Playfair = Playfair_Display({
   subsets: ["latin"],
   weight: "400",
@@ -36,13 +37,19 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${merriweather.variable} ${Barlow.variable} ${NosiferFont.variable} ${Playfair.variable} text-secondary font-merri overflow-x-hidden antialiased`}
+        className={`${merriweather.variable} ${Barlow.variable} ${NosiferFont.variable} ${Playfair.variable} text-secondary font-merri bg-primary overflow-x-hidden antialiased`}
       >
-        <Naviagation />
-        {children}
-        <Footer />
+        <ThemeProvider
+          attribute="data-theme"
+          defaultTheme="system"
+          enableSystem
+        >
+          <Naviagation />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

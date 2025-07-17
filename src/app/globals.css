@@ -1,18 +1,36 @@
 @import "tailwindcss";
-
-@theme inline {
-  --font-merri: var(--font-merriweather);
-  --font-playfair: var(--font-playfair);
-  --font-nosifer: var(--font-nosifer);
-  --font-barlow: var(--font-barlow);
+@theme {
+  --font-merri: var(--font-merriweather, "Merriweather", serif);
+  --font-playfair: var(--font-playfair, "Playfair Display", serif);
+  --font-nosifer: var(--font-nosifer, "Nosifer", sans-serif);
   --color-primary: #ffffff;
   --color-secondary: #161310;
 }
 
-@layer base {
+body::-webkit-scrollbar {
+  display: none;
+}
+
+@layer theme {
+  :root {
+    --font-merriweather: "Merriweather", serif;
+    --font-playfair: "Playfair Display", serif;
+    --font-nosifer: "Nosifer", sans-serif;
+    --font-barlow: "Barlow", sans-serif;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
   [data-theme="dark"] {
     --color-primary: #161310;
     --color-secondary: #ffffff;
+  }
+  body,
+  [class*="bg-"],
+  [class*="text-"] {
+    transition:
+      background-color 1s ease,
+      color 0.3s ease;
   }
 }
 
